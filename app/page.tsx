@@ -623,6 +623,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TypographyH2 } from "./components/TypographyH2";
 import Image from "next/image";
+import Header from "./components/Header";
 
 function Page() {
   const [pdf, setPdf] = useState<File | null>(null);
@@ -674,24 +675,24 @@ function Page() {
     if (videoRef.current && canvasRef.current) {
       const context = canvasRef.current.getContext("2d");
       if (context) {
+        // Draw the current video frame onto the canvas
         context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
         const imageDataUrl = canvasRef.current.toDataURL("image/jpeg");
         setCameraImage(imageDataUrl);
         setIsCameraActive(false);
-
-        // Stop the camera after capturing the photo
-        const stream = videoRef.current.srcObject as MediaStream;
-        const tracks = stream.getTracks();
-        tracks.forEach(track => track.stop());
+  
+        // Safely stop the camera stream
+        const stream = videoRef.current.srcObject;
+        if (stream instanceof MediaStream) {
+          stream.getTracks().forEach((track) => track.stop());
+        }
       }
     }
   };
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="p-4 text-center bg-white">
-        <TypographyH2 className="text-center tracking-wide border-none py-3 m-0">ConsumeWise</TypographyH2>
-      </header>
+      <Header />
       <div className="flex-grow flex flex-col items-center p-4">
         <Tabs defaultValue="pdf" className="w-[400px]">
           <TabsList className="grid w-full grid-cols-3">
