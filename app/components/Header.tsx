@@ -18,7 +18,7 @@ const Header = () => {
         </SignedIn>
       </>
       <>
-      <TypographyH2 className="pt-2 max-w-full mx-auto tracking-normal border-none">ConsumeWise</TypographyH2>
+      <TypographyH2 className="pt-2 max-w-full mx-auto tracking-wide border-none">ConsumeWise</TypographyH2>
       </>
     </div>
   );
