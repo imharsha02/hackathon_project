@@ -17,8 +17,8 @@ const Header = () => {
             }}/>
         </SignedIn>
       </>
-      <div className="p-4 text-center bg-white">
-      <TypographyH2 className="text-center tracking-wide border-none py-3 m-0">ConsumeWise</TypographyH2>
+      <div className="p-4 text-center max-w-full mx-auto">
+      <TypographyH2 className="tracking-wide border-none py-3 m-0">ConsumeWise</TypographyH2>
       </div>
     </div>
   );
