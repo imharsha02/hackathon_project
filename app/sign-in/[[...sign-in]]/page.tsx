@@ -4,20 +4,20 @@ import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="grid rounded-xl border-4 p-8 shadow-[0_10px_20px_rgba(0,0,0,0.1)] bg-gradient-to-br from-white to-blue-50 grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div className="overflow-hidden flex justify-center items-center min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <div className="grid md:w-4/5 lg:w-max rounded-xl border-4 p-6 md:p-8 shadow-lg bg-gradient-to-br from-white to-blue-50 lg:grid-cols-2 gap-6 mx-auto lg:mx-0">
         <div className="flex flex-col justify-center">
-          <TypographyH2 className="text-3xl font-bold text-center tracking-wide mb-6">
+          <TypographyH2 className="text-3xl md:text-4xl lg:text-5xl text-center tracking-wide mb-4 lg:mb-0">
             ConsumeWise
           </TypographyH2>
-          <TypographyP className="text-xl max-w-full mx-auto text-justify text-gray-700 leading-relaxed">
+          <TypographyP className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed text-center lg:text-justify mx-auto md:max-w-md">
             Your AI-powered shopping companion. Scan products to instantly
             reveal their health, environmental, and social impacts. Make
             informed choices tailored to your personal values and wellbeing
             goals. Shop smarter, live better.
           </TypographyP>
         </div>
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="flex justify-center items-center lg:p-6">
           <SignIn
             signUpUrl="/sign-up"
             appearance={{
